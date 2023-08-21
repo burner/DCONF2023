@@ -12,7 +12,7 @@
 \usepackage{bbding}
 \usepackage[absolute,overlay]{textpos}
 \usepackage[most]{tcolorbox}
-\usepackage{ctex}
+%\usepackage{ctex}
 
 \definecolor{Title}{rgb}{0.94,0.52,0.08}
 \setbeamercolor{frametitle}{bg=Title,fg=black}
@@ -218,6 +218,69 @@ they are not. Most languages are safe already, python, JS, java
 		\lstinputlisting[language=D,firstnumber=1,firstline=41,lastline=50,basicstyle=\scriptsize\ttfamily]{code.d}
 		\end{column}
 		\end{columns}
+	\end{frame}
+
+	\section{Continuations}
+
+	\begin{frame}[t]
+		\frametitle{\lstinline@assert@s}
+		\begin{columns}[T]
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=17,basicstyle=\scriptsize\ttfamily]{asserttest.d}
+		\end{column}
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,firstnumber=19,firstline=19,basicstyle=\scriptsize\ttfamily]{asserttest.d}
+		\begin{itemize}
+			\item \lstinline@dmd -release -run asserttest.d@
+			\pause
+			\item No assert, in/out contrast, or invariant
+		\end{itemize}
+		\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[t]
+		\frametitle{Scott Meyers}
+		\begin{quote}
+		The last thing D needs is somebody like me
+		\end{quote}
+	\end{frame}
+
+	\begin{frame}[t]
+		\frametitle{Template Constraints}
+		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=14,basicstyle=\scriptsize\ttfamily]{templateconstraints.d}
+	\end{frame}
+
+	\begin{frame}[t]
+		\frametitle{Template Constraints continued}
+		\lstinputlisting[language=D,firstnumber=15,firstline=15,lastline=29,basicstyle=\scriptsize\ttfamily]{templateconstraints.d}
+	\end{frame}
+
+	\begin{frame}[t]
+		\frametitle{Template Constraints continued}
+		\lstinputlisting[language=D,firstnumber=30,firstline=30,lastline=43,basicstyle=\scriptsize\ttfamily]{templateconstraints.d}
+	\end{frame}
+
+	\begin{frame}[t]
+		\frametitle{Template Constraints less terrible}
+		\lstinputlisting[language=D,firstnumber=45,firstline=45,lastline=61,basicstyle=\scriptsize\ttfamily]{templateconstraints.d}
+	\end{frame}
+
+	\begin{frame}[t]
+		\frametitle{Nested Functions}
+		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=25,basicstyle=\scriptsize\ttfamily]{nestedfunction.d}
+			
+	\end{frame}
+
+	\begin{frame}[t]
+		\frametitle{Nested Imports}
+		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=25,basicstyle=\scriptsize\ttfamily]{nestedimports.d}
+	\end{frame}
+
+	\section{Please don't add}
+
+	\begin{frame}[t]
+		\frametitle{build-in un-named tuple}
 	\end{frame}
 
 \end{document}
