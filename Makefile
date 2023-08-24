@@ -1,9 +1,12 @@
-all: presentation.pdf
+all: quick
 
 epss := $(patsubst %.plantuml,%.eps,$(wildcard *.plantuml))
 
 %.eps: %.plantuml
 	java -jar plantuml.jar -v -teps $<
+
+quick:
+	xelatex presentation.tex
 
 presentation.pdf: presentation.tex $(epss) Makefile
 	xelatex presentation.tex

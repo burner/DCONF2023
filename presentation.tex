@@ -197,6 +197,7 @@ they are not. Most languages are safe already, python, JS, java
 			\item old school \lstinline|@safe|
 			\item No unary \lstinline|&| --- remove this from the grammar in \lstinline|@safe|
 			\item No \lstinline@return@ by \lstinline@ref@
+			\item No slicing of static arrays
 		\end{itemize}
 	\end{frame}
 
@@ -206,6 +207,7 @@ they are not. Most languages are safe already, python, JS, java
 			\item No user defined \lstinline|@safe| container that behave like in-builds
 			\item No Manual Memory Management (MMM) in \lstinline|@safe| code
 			\item Clear definition of \lstinline|@property|
+			\item etc...
 		\end{itemize}
 	\end{frame}
 
@@ -218,6 +220,60 @@ they are not. Most languages are safe already, python, JS, java
 		\lstinputlisting[language=D,firstnumber=1,firstline=41,lastline=50,basicstyle=\scriptsize\ttfamily]{code.d}
 		\end{column}
 		\end{columns}
+	\end{frame}
+
+	\section{Consequences and Remedies}
+
+	\begin{frame}[fragile]{Passing data down}
+		\begin{columns}[T]
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,basicstyle=\ttfamily]{refdown.d}
+		\end{column}
+		\pause
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,basicstyle=\ttfamily]{refdown2.d}
+		\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[fragile]{Passing data up}
+		\begin{columns}[T]
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,basicstyle=\ttfamily]{refup.d}
+		\end{column}
+		\pause
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,basicstyle=\ttfamily]{refup2.d}
+		\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[fragile]{returning ref}
+		\begin{columns}[T]
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,basicstyle=\scriptsize\ttfamily]{container.d}
+		\end{column}
+		\pause
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,basicstyle=\scriptsize\ttfamily]{containerref2.d}
+		\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[fragile]{returning ref}
+		\begin{columns}[T]
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=16,basicstyle=\scriptsize\ttfamily]{containerref.d}
+		\end{column}
+		\pause
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,,firstnumber=18,firstline=18,basicstyle=\scriptsize\ttfamily]{containerref.d}
+		\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[fragile]{property}
+		\lstinputlisting[language=D,basicstyle=\ttfamily]{property.d}
 	\end{frame}
 
 	\section{Continuations}
