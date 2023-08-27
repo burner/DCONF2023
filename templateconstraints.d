@@ -1,3 +1,11 @@
+import std.typecons : Nullable;
+import std.traits : FieldNameTuple;
+
+enum CaseSensitive {
+	no,
+	yes
+}
+
 ptrdiff_t indexOf(Range)(Range s, dchar c, CaseSensitive cs = Yes.caseSensitive)
 if (isInputRange!Range && isSomeChar!(ElementType!Range) && !isSomeString!Range)
 {
@@ -47,7 +55,7 @@ struct IndexOfParameter {
 	Nullable!CaseSensitive cs;
 }
 
-private ptrdiff_t saneIndexOf(Range)(Range s, dchar c
+ptrdiff_t saneIndexOf(Range)(Range s, dchar c
 		, IndexOfParameter idp = IndexOfParameter.init)
 {
 	alias ECT = ElementEncodingType!(Range);
@@ -58,4 +66,33 @@ private ptrdiff_t saneIndexOf(Range)(Range s, dchar c
 	//
 	// jump depending on types and passed parameters
 	// 
+}
+
+template unpack(T) {
+	static if(is(T : Nullable!F, F)) {
+		alias unpack = F;
+	} else {
+		alias unpack = T;
+	}
+}
+
+ptrdiff_t saneIndexOf2(Range, Needle, T...)(Range r, Needle n, T args)
+{
+	IndexOfParameter params;
+	static foreach(mem; FieldNameTuple!(IndexOfParameter)) {
+		static foreach(arg; args) {{
+			alias MT = typeof(__traits(getMember, IndexOfParameter, mem));
+			alias MTUP = unpack!MT;
+			static if(is(MTUP == typeof(arg))) {
+				__traits(getMember, params, mem) = arg;
+			}
+		}}
+	}
+
+	/// ....
+	return 0;
+}
+
+unittest {
+	auto idx = saneIndexOf2("Hello DConf", "o", 4);
 }

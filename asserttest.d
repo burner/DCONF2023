@@ -12,7 +12,7 @@ class Assert {
 			assert(ret != 0);
 		}
 		body {
-			return this.a;
+			assert(false);
 		}
 }
 

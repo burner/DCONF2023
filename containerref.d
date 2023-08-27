@@ -24,3 +24,11 @@ void main() {
 	Nullable!int a;
 	fun(a);
 }
+
+void fun2(const(int)[] arr) {
+}
+
+void fun3() {
+	const(int[]) arr = [1,2,3];
+	fun2(arr);
+}
