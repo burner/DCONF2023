@@ -46,7 +46,7 @@
 	private, protected, public, pure, real, ref, return, scope, shared, short,
 	static, string, struct, super, switch, synchronized, template, this, throw,
 	true, try, typeid, typeof, ubyte, ucent, uint, ulong, union,
-	unittest, delegate, @safe, @property
+	unittest, delegate, @safe, @property, @trusted,
 	ushort, version, void, wchar, while, with, __FILE__, __FILE_FULL_PATH__,
 	__MODULE__, __LINE__, __FUNCTION__, __PRETTY_FUNCTION__, __gshared,
 	__traits, __vector, __parameters
@@ -174,7 +174,7 @@
 \addbibresource{biblio.bib}
 \setbeamertemplate{bibliography item}{\insertbiblabel}
 
-\title{Simple @safe D --- How to make enemies quickly}
+\title{Simple @safe D}
 \date{DConf 2023}
 \author{Dr.\,Robert Schadek}
 
@@ -182,7 +182,7 @@
 	\maketitle
 
 	\begin{frame}[fragile]{The Problem 1/2}
-		\lstinputlisting[language=D,firstnumber=1,firstline=3,lastline=16,basicstyle=\footnotesize\ttfamily]{code.d}
+		\lstinputlisting[language=D,firstnumber=1,firstline=4,lastline=17,basicstyle=\footnotesize\ttfamily]{code.d}
 	\end{frame}
 
 	\begin{frame}[fragile]{The Problem 2/2}
@@ -309,7 +309,7 @@ they are not. Most languages are safe already, python, JS, java
 		\end{columns}
 	\end{frame}
 
-	\begin{frame}[fragile]{@property}
+	\begin{frame}[fragile]{\lstinline|@property| what do you even get?}
 		\lstinputlisting[language=D,basicstyle=\ttfamily]{property.d}
 	\end{frame}
 
@@ -342,8 +342,9 @@ they are not. Most languages are safe already, python, JS, java
 		\lstinputlisting[language=D,firstnumber=19,firstline=19,basicstyle=\scriptsize\ttfamily]{asserttest.d}
 		\begin{itemize}
 			\item \lstinline@dmd -release -run asserttest.d@
+			\item echo \$?
 			\pause
-			\item No assert, in/out contrast, or invariant
+			 \vspace{10mm}\item No assert, in/out contrast, or invariant
 		\end{itemize}
 		\end{column}
 		\end{columns}
@@ -394,9 +395,9 @@ they are not. Most languages are safe already, python, JS, java
 		\pause
 		\item why not use it in \lstinline|@trusted|
 		\pause
-		\item simple is better than complicated
-		\pause
 		\item \lstinline|@safe| code should be simple and safe
+		\pause
+		\item simple is better than complicated
 		\end{itemize}
 	\end{frame}
 

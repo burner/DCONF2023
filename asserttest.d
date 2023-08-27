@@ -1,5 +1,5 @@
 class Assert {
-	int a = 0;
+	int a = 1000;
 	invariant {
 		assert(a != 0);
 	}

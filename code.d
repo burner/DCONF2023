@@ -1,4 +1,5 @@
 import std.random;
+@safe:
 
 class C { // Boilerplate free code
 	int theI;
@@ -14,8 +15,6 @@ class C { // Boilerplate free code
 	int i;
 	C c2 = c.fun(i);
 }
-
-@safe:
 
 int* gp;
 void thorin(scope int*);
@@ -40,15 +39,11 @@ int* balin(scope int* q, int* r) {
 
 @safe unittest {
 	// Will not even parse
-	int a;
+	int a, c;
 	int* b = balin(&a, &a); 
 
 	// The GC will check the owns
 	// for us
 	int* c = new int;
 	int* d = balin(c, c); 
-}
-
-void balin2(ref int q, ref int r, out result) {
-
 }
