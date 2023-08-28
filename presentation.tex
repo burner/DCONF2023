@@ -180,6 +180,8 @@
 
 \begin{document}
 	\maketitle
+	\subtitle{How to make enemies quickly}
+	\maketitle
 
 	\begin{frame}[fragile]{The Problem 1/2}
 		\lstinputlisting[language=D,firstnumber=1,firstline=4,lastline=17,basicstyle=\footnotesize\ttfamily]{code.d}
@@ -187,14 +189,14 @@
 
 	\begin{frame}[fragile]{The Problem 2/2}
 		\begin{itemize}
-			\item Just from the syntax DIP1000 	
-			\item DIP1021 -- Argument Ownership and Function Calls	
-			\item DIP1035 -- \lstinline@@system@ Variables ... are dead on arrival	
+			\item Just look at all the syntax
+			\item DIP1035 -- \lstinline|@system| Variables ... 
 		\end{itemize}
+		\pause
 		\begin{itemize}	
 			\item Thinking that D is the C/C++ successor ... it is not, that is rust
 			\item Thinking \lstinline|@safe| languages are the new thing ...
-they are not. Most languages are safe already, python, JS, java
+				they are not. Most languages are safe already, python, JS, java
 		\end{itemize}
 	\end{frame}
 
@@ -221,6 +223,17 @@ they are not. Most languages are safe already, python, JS, java
 
 	\section{Hopefully, there are still some people in the room with me at this point}
 
+	\begin{frame}[fragile]{DIP1000}
+		\begin{columns}[T]
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,firstnumber=1,firstline=20,lastline=40,basicstyle=\scriptsize\ttfamily]{code.d}
+		\end{column}
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,firstnumber=1,firstline=41,lastline=50,basicstyle=\scriptsize\ttfamily]{code.d}
+		\end{column}
+		\end{columns}
+	\end{frame}
+
 	\begin{frame}[fragile]{The Solution}
 		\begin{itemize}
 			\item instead of adding things ... lets remove things\vspace{1cm}
@@ -240,17 +253,6 @@ they are not. Most languages are safe already, python, JS, java
 			\item Clear definition of \lstinline|@property|
 			\item etc...
 		\end{itemize}
-	\end{frame}
-
-	\begin{frame}[fragile]{DIP1000}
-		\begin{columns}[T]
-		\begin{column}{0.49\textwidth}
-		\lstinputlisting[language=D,firstnumber=1,firstline=20,lastline=40,basicstyle=\scriptsize\ttfamily]{code.d}
-		\end{column}
-		\begin{column}{0.49\textwidth}
-		\lstinputlisting[language=D,firstnumber=1,firstline=41,lastline=50,basicstyle=\scriptsize\ttfamily]{code.d}
-		\end{column}
-		\end{columns}
 	\end{frame}
 
 	\section{Consequences and Remedies}
@@ -303,8 +305,6 @@ they are not. Most languages are safe already, python, JS, java
 		\pause
 		\begin{column}{0.49\textwidth}
 		\lstinputlisting[language=D,,firstnumber=18,firstline=18,lastline=26,basicstyle=\scriptsize\ttfamily]{containerref.d}
-		\pause
-		\lstinputlisting[language=D,,firstnumber=1,firstline=28,lastline=34,basicstyle=\scriptsize\ttfamily]{containerref.d}
 		\end{column}
 		\end{columns}
 	\end{frame}
@@ -366,6 +366,18 @@ they are not. Most languages are safe already, python, JS, java
 	\end{frame}
 
 	\begin{frame}[t]
+		\frametitle{Template Constraints C++}
+		\begin{columns}[T]
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=C++,firstnumber=1,firstline=1,lastline=14,basicstyle=\scriptsize\ttfamily]{cppfibo.cpp}
+		\end{column}
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=C++,firstnumber=16,firstline=16,lastline=26,basicstyle=\scriptsize\ttfamily]{cppfibo.cpp}
+		\end{column}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[t]
 		\frametitle{Template Constraints less terrible}
 		\lstinputlisting[language=D,firstnumber=1,firstline=53,lastline=69,basicstyle=\scriptsize\ttfamily]{templateconstraints.d}
 	\end{frame}
@@ -379,9 +391,10 @@ they are not. Most languages are safe already, python, JS, java
 		\frametitle{Nested Functions}
 		\begin{columns}[T]
 		\begin{column}{0.49\textwidth}
-		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=19,basicstyle=\scriptsize\ttfamily]{nestedfunction.d}
+		\lstinputlisting[language=D,firstnumber=1,firstline=4,lastline=21,basicstyle=\scriptsize\ttfamily]{nestedfunction.d}
 		\end{column}
 		\begin{column}{0.49\textwidth}
+		\pause
 		\begin{itemize}
 			\item especially bad if the use parent function parameters
 			\item pull out and make private
@@ -395,10 +408,10 @@ they are not. Most languages are safe already, python, JS, java
 		\frametitle{Nested Imports}
 		\begin{columns}[T]
 		\begin{column}{0.49\textwidth}
-		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=19,basicstyle=\scriptsize\ttfamily]{nestedfunction.d}
-		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=25,basicstyle=\scriptsize\ttfamily]{nestedimports.d}
+		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=19,basicstyle=\scriptsize\ttfamily]{nestedimports.d}
 		\end{column}
 		\begin{column}{0.49\textwidth}
+		\pause
 		\begin{itemize}
 			\item refactoring gets a lot harder, because you never include all
 				used symbols
@@ -417,6 +430,8 @@ they are not. Most languages are safe already, python, JS, java
 		\item why not use it in \lstinline|@trusted|
 		\pause
 		\item \lstinline|@safe| code should be simple and safe
+		\pause
+		\item you ain't gonna need it
 		\pause
 		\item simple is better than complicated
 		\end{itemize}

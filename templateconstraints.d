@@ -79,15 +79,15 @@ template unpack(T) {
 ptrdiff_t saneIndexOf2(Range, Needle, T...)(Range r, Needle n, T args)
 {
 	IndexOfParameter params;
-	static foreach(mem; FieldNameTuple!(IndexOfParameter)) {
+	static foreach(mem; __traits(allMembers, IndexOfParameter)) {{
+		alias MT = typeof(__traits(getMember, IndexOfParameter, mem));
+		alias MTUP = unpack!MT;
 		static foreach(arg; args) {{
-			alias MT = typeof(__traits(getMember, IndexOfParameter, mem));
-			alias MTUP = unpack!MT;
 			static if(is(MTUP == typeof(arg))) {
 				__traits(getMember, params, mem) = arg;
 			}
 		}}
-	}
+	}}
 
 	/// ....
 	return 0;
