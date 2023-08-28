@@ -377,13 +377,34 @@ they are not. Most languages are safe already, python, JS, java
 
 	\begin{frame}[t]
 		\frametitle{Nested Functions}
+		\begin{columns}[T]
+		\begin{column}{0.49\textwidth}
 		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=19,basicstyle=\scriptsize\ttfamily]{nestedfunction.d}
+		\end{column}
+		\begin{column}{0.49\textwidth}
+		\begin{itemize}
+			\item especially bad if the use parent function parameters
+			\item pull out and make private
+		\end{itemize}
+		\end{column}
+		\end{columns}
 			
 	\end{frame}
 
 	\begin{frame}[t]
 		\frametitle{Nested Imports}
+		\begin{columns}[T]
+		\begin{column}{0.49\textwidth}
+		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=19,basicstyle=\scriptsize\ttfamily]{nestedfunction.d}
 		\lstinputlisting[language=D,firstnumber=1,firstline=1,lastline=25,basicstyle=\scriptsize\ttfamily]{nestedimports.d}
+		\end{column}
+		\begin{column}{0.49\textwidth}
+		\begin{itemize}
+			\item refactoring gets a lot harder, because you never include all
+				used symbols
+		\end{itemize}
+		\end{column}
+		\end{columns}
 	\end{frame}
 
 	\section{Conclusions}
