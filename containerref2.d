@@ -4,7 +4,7 @@ struct Array {
 	@safe:
 	int[10] arr;
 
-	void get(size_t i, ref int into) {
+	void get(size_t i, out int into) {
 		into = this.arr[i];
 	}
 }

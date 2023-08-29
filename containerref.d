@@ -7,7 +7,7 @@ struct Array {
 	int[10] arr;
 
 	void get(size_t i
-			, ref Nullable!int into) 
+			, out Nullable!int into) 
 	{
 		if(i < this.arr.length) {
 			into = this.arr[i];
